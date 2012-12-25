@@ -4,6 +4,8 @@ QtRaw
 Qt image plugin for loading raw files, via libraw. Once installed, it enables
 all Qt applications to load raw files produced by most digital cameras.
 
+The code is licensed udner the GPL v3 licence. If you need to distribute it
+under a different license, please contact me at info@mardy.it
 
 INSTALL
 =======
