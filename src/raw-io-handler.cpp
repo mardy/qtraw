@@ -71,6 +71,9 @@ bool RawIOHandlerPrivate::load(QIODevice *device)
 
     defaultSize = QSize(raw->imgdata.sizes.width,
                         raw->imgdata.sizes.height);
+    if (raw->imgdata.sizes.flip == 5 || raw->imgdata.sizes.flip == 6) {
+        defaultSize.transpose();
+    }
     return true;
 }
 
@@ -126,6 +129,17 @@ bool RawIOHandler::read(QImage *image)
     uchar *pixels = 0;
     if (output->type == LIBRAW_IMAGE_JPEG) {
         unscaled.loadFromData(output->data, output->data_size, "JPEG");
+        if (imgdata.sizes.flip != 0) {
+            QTransform rotation;
+            int angle = 0;
+            if (imgdata.sizes.flip == 3) angle = 180;
+            else if (imgdata.sizes.flip == 5) angle = -90;
+            else if (imgdata.sizes.flip == 6) angle = 90;
+            if (angle != 0) {
+                rotation.rotate(angle);
+                unscaled = unscaled.transformed(rotation);
+            }
+        }
     } else {
         int numPixels = output->width * output->height;
         int colorSize = output->bits / 8;
