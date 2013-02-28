@@ -35,7 +35,6 @@ public:
     ~RawIOHandler();
 
     virtual bool canRead() const;
-    virtual QByteArray name() const;
     virtual bool read(QImage *image);
     static bool canRead(QIODevice *device);
     virtual QVariant option(ImageOption option) const;
