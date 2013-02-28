@@ -31,6 +31,7 @@ class RawIOHandlerPrivate
 public:
     RawIOHandlerPrivate(RawIOHandler *qq):
         raw(0),
+        stream(0),
         q(qq)
     {}
 
