@@ -30,3 +30,16 @@ isEmpty(LIBDIR) {
     message("====")
     message("==== library install path set to `$${INSTALL_LIBDIR}'")
 }
+
+
+INSTALL_KDEDIR = $${PREFIX}
+
+isEmpty(KDEDIR) {
+    message("====")
+    message("==== NOTE: To override the KDE installation path run: `qmake KDEDIR=/custom/path'")
+    message("==== (current installation path is `$${INSTALL_KDEDIR}')")
+} else {
+    INSTALL_KDEDIR = $${KDEDIR}
+    message("====")
+    message("==== KDE install path set to `$${INSTALL_KDEDIR}'")
+}
