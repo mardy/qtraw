@@ -57,9 +57,9 @@ RawPlugin::capabilities(QIODevice *device, const QByteArray &format) const
         return 0;
 
     Capabilities cap;
-    if (device->isReadable())
+    if (device->isReadable() && RawIOHandler::canRead(device))
         cap |= CanRead;
-    return Capabilities(CanRead);
+    return cap;
 }
 
 QImageIOHandler *RawPlugin::create(QIODevice *device,
