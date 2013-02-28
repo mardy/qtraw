@@ -92,9 +92,17 @@ RawIOHandler::~RawIOHandler()
 
 bool RawIOHandler::canRead() const
 {
-    if (!d->load(device())) return false;
+    return canRead(device());
+}
 
-    return true;
+
+bool RawIOHandler::canRead(QIODevice *device)
+{
+    if (!device) {
+        return false;
+    }
+    RawIOHandler handler;
+    return handler.d->load(device);
 }
 
 
