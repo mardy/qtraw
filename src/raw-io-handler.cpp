@@ -93,15 +93,21 @@ RawIOHandler::~RawIOHandler()
 
 bool RawIOHandler::canRead() const
 {
-    if (!d->load(device())) return false;
-
-    return true;
+    if (canRead(device())) {
+        setFormat("raw");
+        return true;
+    }
+    return false;
 }
 
 
-QByteArray RawIOHandler::name() const
+bool RawIOHandler::canRead(QIODevice *device)
 {
-    return "libraw";
+    if (!device) {
+        return false;
+    }
+    RawIOHandler handler;
+    return handler.d->load(device);
 }
 
 
