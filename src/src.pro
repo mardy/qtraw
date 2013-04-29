@@ -17,6 +17,8 @@ SOURCES += \
     datastream.cpp \
     main.cpp \
     raw-io-handler.cpp
+OTHER_FILES += \
+    raw.json
 
 target.path += $$[QT_INSTALL_PLUGINS]/imageformats
 INSTALLS += target
