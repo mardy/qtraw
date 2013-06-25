@@ -58,6 +58,7 @@ bool RawIOHandlerPrivate::load(QIODevice *device)
 {
     if (device == 0) return false;
 
+    device->seek(0);
     if (raw != 0) return true;
 
     stream = new Datastream(device);
