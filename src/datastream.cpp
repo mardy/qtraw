@@ -67,6 +67,11 @@ INT64 Datastream::tell()
     return m_device->pos();
 }
 
+INT64 Datastream::size()
+{
+    return m_device->size();
+}
+
 int Datastream::get_char()
 {
     char c;
