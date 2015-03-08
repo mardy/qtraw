@@ -75,7 +75,7 @@ INT64 Datastream::size()
 int Datastream::get_char()
 {
     char c;
-    return m_device->getChar(&c) ? c : -1;
+    return m_device->getChar(&c) ? (unsigned char)c : -1;
 }
 
 char *Datastream::gets(char *s, int n)
