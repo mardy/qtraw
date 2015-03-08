@@ -14,9 +14,13 @@ The QtRaw plugin depends on Qt and libraw. In order to build it, make sure you
 have the necessary development packages installed. Under Ubuntu, this can be
 achieved by running these commands:
 
-  sudo apt-get install libraw-dev qtbase5-dev    # for Qt 5
-  sudo apt-get install libraw-dev libqt4-dev     # for Qt 4
+  sudo apt-get install libraw-dev qtbase5-dev
 
+for building with Qt 5, or
+
+  sudo apt-get install libraw-dev libqt4-dev
+
+for building with Qt 4.
 Alternatively, you can find the libraw source code at
 http://www.libraw.org/download
 
