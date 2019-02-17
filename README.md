@@ -1,3 +1,9 @@
+Moved to https://gitlab.com/mardy/qtraw
+=======================================
+
+This repository is now read-only and won't be updated anymore. Please get
+QtRaw from [here](https://gitlab.com/mardy/qtraw).
+
 QtRaw
 =====
 
